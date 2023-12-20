@@ -15,7 +15,7 @@ fn get_day(day: &str) -> impl Solve {
 fn main() {
     let args: Vec<String> = env::args().collect();
     if args.len() != 2 {
-        println!("You must provide only one argument - the day to be solved");
+        println!("You must provide one argument - the day to be solved");
     }
 
     let day = get_day(&args[1]);

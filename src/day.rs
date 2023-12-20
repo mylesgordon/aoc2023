@@ -10,13 +10,13 @@ pub trait Solve {
 macro_rules! impl_day{
     ($day:ident) => {
         pub struct $day {
-            file_contents: String,
+            file_contents: Vec<String>,
         }
 
         impl Day for $day {
             fn new() -> Self {
                 let file_path = concat!("resources/", stringify!($day), ".txt");
-                let file_contents = std::fs::read_to_string(&file_path).expect(&file_path);
+                let file_contents = std::fs::read_to_string(&file_path).expect(&file_path).lines().map(String::from).collect();
 
                 Self {
                     file_contents
